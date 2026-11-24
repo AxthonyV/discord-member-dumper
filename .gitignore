@@ -1,0 +1,19 @@
+/target
+**/*.rs.bk
+*.pdb
+*.exe
+*.log
+
+# scraper outputs
+members.csv
+tokens.txt
+*.csv
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+Thumbs.db
+.DS_Store

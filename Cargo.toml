@@ -1,0 +1,32 @@
+[package]
+name = "discord_dumper_gui"
+version = "0.1.0"
+edition = "2021"
+authors = ["Axthony"]
+description = "Native Windows Rust GUI that exports Discord guild members (with admin / mod / user classification) through the Gateway WebSocket."
+license = "MIT"
+repository = "https://github.com/AxthonyV/discord-member-dumper"
+readme = "README.md"
+keywords = ["discord", "gui", "scraper", "gateway", "egui"]
+categories = ["gui", "network-programming"]
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+opt-level = 3
+strip = true
+panic = "abort"
+
+[dependencies]
+eframe = { version = "0.28", default-features = false, features = ["default_fonts", "glow", "wayland", "x11"] }
+egui = "0.28"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time", "sync"] }
+reqwest = { version = "0.12", features = ["json", "rustls-tls", "gzip"], default-features = false }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rfd = "0.14"
+tokio-tungstenite = { version = "0.24", features = ["rustls-tls-webpki-roots"] }
+futures-util = "0.3"
+
+[package.metadata.winres]
+LegalCopyright = "built by Axthony"
